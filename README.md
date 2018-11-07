@@ -1,2 +1,11 @@
 # wordpress-api-docker
 WordPress API theme using Docker
+
+Work in progress !
+
+**TODO**
+- [ ] Add WordPress CLI for automation
+- [ ] Create docker env for dev / staging / prod
+- [ ] Add Caddy container for reverse proxy / https
+- [ ] Add user restriction for nginx and mysql
+- [ ] Create the WordPress API Theme
