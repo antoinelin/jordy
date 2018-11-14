@@ -1,0 +1,22 @@
+localhost:443 {
+  # Development
+  log stdout
+  errors stdout
+
+  # Production
+  # log /var/log/caddy/access.log
+  # errors /var/log/caddy/error.log
+
+  fastcgi / wordpress:9000 php
+
+  # Development only
+  tls self_signed
+
+  proxy / web-server:8080 {
+    transparent
+  }
+}
+
+localhost:80 {
+  redir https://localhost{uri}
+}

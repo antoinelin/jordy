@@ -7,10 +7,13 @@ wp core install \
   --admin_password="$WORDPRESS_ADMIN_PASSWORD" \
   --admin_email="$WORDPRESS_ADMIN_EMAIL" \
   --skip-email \
-  --url="http://localhost"
+  --url="https://localhost"
 
 # Update permalink structure.
 wp option update permalink_structure "/%postname%" --skip-themes --skip-plugins
 
-# Activate plugin.
-# wp plugin activate my-plugin
+# Install needed plugins
+wp plugin install redis-cache --activate
+
+# Config Redis on wp-config.php
+wp config set WP_REDIS_HOST 'redis' --raw

@@ -49,3 +49,4 @@ wp-content/plugins/hello.php
 /docker/data
 /docker/.env
 /docker/nginx/logs
+/docker/caddy/.caddy

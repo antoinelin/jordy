@@ -9,3 +9,9 @@ Work in progress !
 - [ ] Add Caddy container for reverse proxy / https
 - [ ] Add user restriction for nginx and mysql
 - [ ] Create the WordPress API Theme
+
+
+# Commands
+docker-compose up --build web-server database wordpress redis
+docker-compose up --build proxy
+docker-compose run --rm wordpress-cli install-wp
