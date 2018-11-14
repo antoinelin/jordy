@@ -12,6 +12,8 @@ Work in progress !
 
 
 # Commands
-docker-compose up --build web-server database wordpress redis
-docker-compose up --build proxy
-docker-compose run --rm wordpress-cli install-wp
+```sh
+$ docker-compose up --build web-server database wordpress redis
+$ docker-compose up --build proxy
+$ docker-compose run --rm wordpress-cli install-wp
+````
