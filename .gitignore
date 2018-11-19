@@ -45,8 +45,11 @@ wp-content/plugins/hello.php
 /readme.html
 /sitemap.xml
 /sitemap.xml.gz
-/root
-/docker/data
-/docker/.env
-/docker/nginx/logs
-/docker/caddy/.caddy
+root
+docker/data
+docker/.env
+docker/nginx/logs
+docker/caddy/.caddy
+docker/caddy/ssl/*
+!docker/caddy/ssl/openssl-with-ca.cnf
+!docker/caddy/ssl/v3.ext
