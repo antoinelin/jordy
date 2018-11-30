@@ -81,8 +81,8 @@ $ openssl req -x509 -new -nodes -key WordpressRootCA.key -sha256 -days 1825 -out
 #### => [Install certificate authority](https://www.bounca.org/tutorials/install_root_certificate.html)
 
 ```sh
-$ openssl genrsa -out wordress.dev.key 2048
-$ openssl req -new -key wordpress.dev.key -out wordpress.dev.csr
+$ openssl genrsa -out wordpress.dev.key 2048
+$ openssl req -new -key wordpress.dev.key -out wordpress.dev.csr # Copy the absolute path of wordpress.dev.key
 ```
 
 Create a wordpress.dev.ext file and paste it this :
