@@ -1,4 +1,4 @@
-# wordpress-api-docker
+# Jordy
 WordPress API theme using Docker
 
 Work in progress !
@@ -15,10 +15,10 @@ Work in progress !
 
 Clone the repo :
 ```sh
-$ git clone https://github.com/toinelin/wordpress-api-docker.git
+$ git clone https://github.com/toinelin/jordy.git
 ```
 
-## Create wordpress.dev vhost
+## Create jordy.dev vhost
 
 ### Using dnsmasq (OSX) :
 
@@ -56,8 +56,8 @@ Create resolver :
 ```sh
 $ sudo mkdir -p /etc/resolver
 $ cd /etc/resolver
-$ sudo touch wordpress.dev
-$ sudo vim wordpress.dev
+$ sudo touch jordy.dev
+$ sudo vim jordy.dev
 ```
 
 Paste it this
@@ -74,18 +74,18 @@ EOF
 Create certificate authority (w'ill create it on ```/docker/caddy/ssl``` but you should store CA keys in safe place and use it globaly)
 ```sh
 $ cd docker/caddy/ssl
-$ openssl genrsa -des3 -out WordpressRootCA.key 2048
-$ openssl req -x509 -new -nodes -key WordpressRootCA.key -sha256 -days 1825 -out WordpressRootCA.pem
+$ openssl genrsa -des3 -out JordyRootCA.key 2048
+$ openssl req -x509 -new -nodes -key JordyRootCA.key -sha256 -days 1825 -out JordyRootCA.pem
 ```
 
 #### => [Install certificate authority](https://www.bounca.org/tutorials/install_root_certificate.html)
 
 ```sh
-$ openssl genrsa -out wordpress.dev.key 2048
-$ openssl req -new -key wordpress.dev.key -out wordpress.dev.csr # Copy the absolute path of wordpress.dev.key
+$ openssl genrsa -out jordy.dev.key 2048
+$ openssl req -new -key jordy.dev.key -out jordy.dev.csr # Copy the absolute path of jordy.dev.key
 ```
 
-Create a wordpress.dev.ext file and paste it this :
+Create a jordy.dev.ext file and paste it this :
 ```sh
 authorityKeyIdentifier=keyid,issuer
 basicConstraints=CA:FALSE
@@ -93,15 +93,15 @@ keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
 subjectAltName = @alt_names
 
 [alt_names]
-DNS.1 = wordpress.dev
+DNS.1 = jordy.dev
 ```
 
 Create the certificate : 
 ```sh
-$ openssl x509 -req -in wordpress.dev.csr -CA WordpressRootCA.pem -CAkey WordpressRootCA.key -CAcreateserial -out wordpress.dev.crt -days 1825 -sha256 -extfile wordpress.dev.ext
+$ openssl x509 -req -in jordy.dev.csr -CA JordyRootCA.pem -CAkey JordyRootCA.key -CAcreateserial -out jordy.dev.crt -days 1825 -sha256 -extfile jordy.dev.ext
 ```
 
-Then delete ```wordpress.dev.csr```
+Then delete ```jordy.dev.csr```
 
 ## Run
 
