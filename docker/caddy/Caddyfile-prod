@@ -1,9 +1,9 @@
-wordpress.dev:443 {
+jordy.dev:443 {
   # Production
   # log /var/log/caddy/access.log
   # errors /var/log/caddy/error.log
 
-  fastcgi / wordpress:9000 php
+  fastcgi / jordy:9000 php
 
   header / {
     # Enable HTTP Strict Transport Security (HSTS) to force clients to always
@@ -22,6 +22,6 @@ wordpress.dev:443 {
   }
 }
 
-wordpress.dev:80 {
-  redir https://wordpress.dev{uri}
+jordy.dev:80 {
+  redir https://jordy.dev{uri}
 }

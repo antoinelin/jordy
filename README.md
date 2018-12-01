@@ -108,16 +108,16 @@ Then delete ```jordy.dev.csr```
 ### Start development
 ```sh
 $ cd docker
-$ docker-compose up --build web-server database wordpress redis
-$ docker-compose up --build proxy-dev
+$ docker-compose up -d --build web-server database wordpress redis
+$ docker-compose up -d --build proxy-dev
 $ docker-compose run --rm wordpress-cli install-wp
 ```
 
 ### Build
 ```sh
 $ cd docker
-$ docker-compose up --build web-server database wordpress redis
-$ docker-compose up --build proxy-prod
+$ docker-compose up -d --build web-server database wordpress redis
+$ docker-compose up -d --build proxy-prod
 $ docker-compose run --rm wordpress-cli install-wp
 ```
 

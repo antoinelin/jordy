@@ -1,4 +1,4 @@
-wordpress.dev:443 {
+jordy.dev:443 {
   bind {$ADDRESS}
 
   log stdout
@@ -6,7 +6,7 @@ wordpress.dev:443 {
 
   fastcgi / wordpress:9000 php
 
-  tls /etc/caddy/ssl/wordpress.dev.crt /etc/caddy/ssl/wordpress.dev.key
+  tls /etc/caddy/ssl/jordy.dev.crt /etc/caddy/ssl/jordy.dev.key
 
   header / {
     # Enable HTTP Strict Transport Security (HSTS) to force clients to always
@@ -25,6 +25,6 @@ wordpress.dev:443 {
   }
 }
 
-wordpress.dev:80 {
-  redir https://wordpress.dev{uri}
+jordy.dev:80 {
+  redir https://jordy.dev{uri}
 }

@@ -90,8 +90,8 @@ services:
       - "${ROOT}:/var/www/html:rw"
       - "./caddy/Caddyfile-dev:/etc/Caddyfile:rw"
       - "./caddy/.caddy:/root/.caddy:rw"
-      - "./caddy/ssl/wordpress.dev.crt:/etc/caddy/ssl/wordpress.dev.crt:ro"
-      - "./caddy/ssl/wordpress.dev.key:/etc/caddy/ssl/wordpress.dev.key:ro"
+      - "./caddy/ssl/jordy.dev.crt:/etc/caddy/ssl/jordy.dev.crt:ro"
+      - "./caddy/ssl/jordy.dev.key:/etc/caddy/ssl/jordy.dev.key:ro"
       - "caddy_log:/var/log/caddy:rw"
     depends_on:
       - web-server
