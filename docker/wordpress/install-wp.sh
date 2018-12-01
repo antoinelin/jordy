@@ -16,4 +16,4 @@ wp option update permalink_structure "/%postname%" --skip-themes --skip-plugins
 wp plugin install redis-cache --activate
 
 # Config Redis on wp-config.php
-wp config set WP_REDIS_HOST 'redis' --raw --type=string
+wp config set WP_REDIS_HOST 'redis' --type=constant
