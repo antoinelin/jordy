@@ -1,9 +1,10 @@
 jordy.dev:443 {
-  # Production
-  # log /var/log/caddy/access.log
-  # errors /var/log/caddy/error.log
+  bind {$ADDRESS}
 
-  fastcgi / jordy:9000 php
+  log /var/log/caddy/access.log
+  errors /var/log/caddy/error.log
+
+  fastcgi / wordpress:9000 php
 
   header / {
     # Enable HTTP Strict Transport Security (HSTS) to force clients to always

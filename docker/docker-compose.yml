@@ -52,6 +52,7 @@ services:
     volumes:
       - "./wordpress/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini:ro"
       - "${ROOT}:/var/www/html:rw"
+      - "${THEME}:/home/jordy-theme:rw"
     environment:
       - WORDPRESS_DB_HOST=database # Link to database service
       - WORDPRESS_DB_NAME=${MYSQL_DATABASE}
@@ -125,4 +126,3 @@ services:
     volumes:
       - "redis_data:/data:rw"
     restart: unless-stopped
-

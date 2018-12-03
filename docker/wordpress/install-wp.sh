@@ -1,4 +1,5 @@
 #!/bin/bash
+ln -s /home/jordy-theme /var/www/html/wp-content/themes/jordy-theme
 
 # Install WordPress.
 wp core install \
