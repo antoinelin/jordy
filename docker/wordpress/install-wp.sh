@@ -14,7 +14,12 @@ wp core install \
 wp option update permalink_structure "/%postname%" --skip-themes --skip-plugins
 
 # Install needed plugins
-wp plugin install redis-cache --activate
+wp plugin install --activate \
+  wp-api-menus \
+  redis-cache \
+  advanced-custom-fields \
+  acf-to-rest-api \
+  wp-rest-api-log
 
 # Config Redis on wp-config.php
 wp config set WP_REDIS_HOST 'redis' --type=constant
