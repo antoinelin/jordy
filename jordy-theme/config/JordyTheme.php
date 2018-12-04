@@ -21,7 +21,7 @@ if (!class_exists('JordyTheme')) {
          * Require ACFs and CPTs
          */
         private function _autoloadFieldsAndCPTs() {
-            foreach (glob(get_template_directory() . "/{models,fields}/*.php", GLOB_BRACE) as $filename) {
+            foreach (glob(get_template_directory() . "/{models,custom-fields}/*.php", GLOB_BRACE) as $filename) {
                 if(file_exists($filename) && is_readable($filename)) {
                     require_once $filename;
                 }
@@ -66,6 +66,27 @@ if (!class_exists('JordyTheme')) {
                     'gallery',
                     'caption'
                 ]);
+
+            // Enable the option show & edit in rest
+            $this->addFilter('acf/rest_api/field_settings/show_in_rest', '__return_true');
+            $this->addFilter('acf/rest_api/field_settings/edit_in_rest', '__return_true');
+
+            // Allow ACF relations to be queryables recursively
+             $post_types = get_post_types(array(
+                'public'       => true,
+                'show_in_rest' => true,
+                '_builtin'     => false
+             ), 'names', 'and');
+             
+             foreach ( $post_types  as $post_type ) {
+                $this->addFilter("acf/rest_api/{$post_type}/get_fields", function($data) {
+                    if (!empty($data)) {
+                        array_walk_recursive($data, array($this, 'get_fields_recursive'));
+                    }
+    
+                    return $data;
+                });
+             }
         }
 
         /**
