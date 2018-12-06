@@ -1,15 +1,6 @@
 # Jordy
 WordPress API theme using Docker
 
-Work in progress !
-
-**TODO**
-- [x] Add WordPress CLI for automation
-- [-] Create docker env for dev / staging / prod
-- [x] Add Caddy container for reverse proxy / https
-- [ ] Add user restriction for nginx and mysql
-- [ ] Create the WordPress API Theme
-
 # Installation
 ## Getting started
 
@@ -103,31 +94,46 @@ $ openssl x509 -req -in jordy.dev.csr -CA JordyRootCA.pem -CAkey JordyRootCA.key
 
 Then delete ```jordy.dev.csr```
 
-## Run
+## Scripts
 
 ### Start development
 ```sh
 $ cd docker
-$ docker-compose up -d --build web-server database wordpress redis
-$ docker-compose up -d --build proxy-dev
-$ docker-compose run --rm wordpress-cli install-wp
+$ sh ./bin/dev.sh
 ```
 
-### Build
+### Build production
 ```sh
 $ cd docker
-$ docker-compose up -d --build web-server database wordpress redis
-$ docker-compose up -d --build proxy-prod
-$ docker-compose run --rm wordpress-cli install-wp
+$ sh ./bin/prod.sh
 ```
 
-### Down / clean commands
+### Kill Docker containers
 ```sh
-$ docker-compose down # Stop all docker-compose services
-$ docker volume prune # Care that it will erase your volumes (including database)
-$ docker rm $(docker ps -a -q) # Kill all docker containers
-$ docker rmi -f $(docker images -q) # Delete images
+$ cd docker
+$ sh ./bin/kill.sh
 ```
+
+### Generate mysql export (use as cron to generate mysql backup over time)
+```sh
+$ cd docker
+$ sh ./bin/export.sh
+```
+
+### Install Jordy WordPress Theme
+```sh
+$ cd docker
+$ sh ./bin/install.sh
+```
+
+## Next steps
+
+**TODO**
+- [x] Add WordPress CLI for automation
+- [x] Create docker env for dev / prod
+- [x] Add Caddy container for reverse proxy / https
+- [-] Add user restriction for nginx and mysql
+- [x] Create the WordPress API Theme
 
 # Credits
 [Thomas Sutton](https://passingcuriosity.com/)
