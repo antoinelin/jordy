@@ -73,7 +73,7 @@ services:
       - wordpress
       - database
     volumes:
-      - "./wordpress/install-wp.sh:/usr/local/bin/install-wp:ro"
+      - "./bin/install.sh:/usr/local/bin/install:ro"
       - "${ROOT}:/var/www/html:rw"
     environment:
       - WORDPRESS_ADMIN_USER=${WORDPRESS_ADMIN_USER}

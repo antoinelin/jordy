@@ -10,7 +10,7 @@ wp core install \
   --skip-email \
   --url="https://jordy.dev"
 
-# Update permalink structure.
+# Configuration
 wp option update permalink_structure "/%postname%/" --skip-themes --skip-plugins
 
 # Install needed plugins
@@ -20,7 +20,16 @@ wp plugin install --activate \
   advanced-custom-fields \
   acf-to-rest-api \
   wp-rest-api-log \
+  wp-rest-api-cache \
   jwt-authentication-for-wp-rest-api
+
+# Cleaning
+wp post delete 1 --force # Article exemple - no trash. Comment is also deleted
+wp post delete 2 --force # page exemple
+wp plugin delete hello
+wp theme delete twentyfifteen
+wp theme delete twentysixteen
+wp option update blogdescription ''
 
 # Config Redis on wp-config.php
 wp config set WP_REDIS_HOST 'redis' --type=constant
@@ -30,3 +39,5 @@ wp config set CACHE true --type=constant --raw
 # Config WordPress API JWT auth plugin
 wp config set JWT_AUTH_SECRET_KEY $JWT_AUTH_SECRET_KEY --type=constant
 wp config set JWT_AUTH_CORS_ENABLE true --type=constant --raw
+
+echo '\033[0;32mJordy theme is now installed, please activate it on your admin dashboard.\033[0m'
