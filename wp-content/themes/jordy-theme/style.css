@@ -3,7 +3,7 @@ Theme Name: Jordy
 Author: Antoine Lin
 Author URI: https://antoinelin.com
 Description: Theme with good stuff to use WordPress API
-Version: 0.0.1
+Version: 1.0.0
 Text Domain: jordy-theme
 Tags: wp-api
 */
@@ -394,7 +394,7 @@ body {
 }
 
 /**
- * Add theme white color to fonts
+ * Add theme typo style
  */
 h1,
 h2,
@@ -405,4 +405,21 @@ p,
 a,
 span {
   color: #E3E3E3;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.5;
+}
+
+p {
+  font-size: 0.9rem;
+}
+
+.jordy-main {
+  padding: 12vh 10vw;
+  max-width: 30rem;
+}
+
+@media screen and (max-width: 640px) {
+  .jordy-main {
+    text-align: center;
+  }
 }
