@@ -136,9 +136,11 @@ $ sh ./bin/install.sh
 - [x] Create the WordPress API Theme
 - [] Create automated script to generate vhost and CA
 - [] Improve TTFB with cache
+- [] Improve documentation
+- [] Improve branding
 
 ## Credits
-[Thomas Sutton](https://passingcuriosity.com/)
-[Brad Touesnard @ Delicious Brain](https://deliciousbrains.com/author/bradt/)
-[bounca.org](https://www.bounca.org)
-[tylerlwsmith](https://github.com/tylerlwsmith)
+[Thomas Sutton](https://passingcuriosity.com/)  
+[Brad Touesnard @ Delicious Brain](https://deliciousbrains.com/author/bradt/)  
+[bounca.org](https://www.bounca.org)  
+[tylerlwsmith](https://github.com/tylerlwsmith)  
