@@ -1,5 +1,7 @@
 <?php
 
+// Based on https://gist.github.com/tylerlwsmith/dc1f5fb04126189ec42980952cd124d7 OOP functions.php
+
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
@@ -13,6 +15,16 @@ if (!class_exists('JordyTheme')) {
          */
         private function _actionAfterSetup($function) {
             add_action('after_setup_theme', function() use ($function) {
+                $function();
+            });
+        }
+
+        /**
+         * Add WordPress script after theme is well setup
+         * @param function
+         */
+        private function _actionEnqueueScripts($function) {
+            add_action('wp_enqueue_scripts', function() use ($function) {
                 $function();
             });
         }
@@ -122,6 +134,23 @@ if (!class_exists('JordyTheme')) {
                 add_filter($tag, $function_to_add, $priority, $accepted_args);
             });
 
+            return $this;
+        }
+
+        /**
+         * Add style to WordPress
+         * @param handle
+         * @param src
+         * @param deps
+         * @param ver
+         * @param media
+         * 
+         * @return this
+         */
+        public function addStyle($handle,  $src = '',  $deps = array(), $ver = false, $media = 'all') {
+            $this->_actionEnqueueScripts(function() use ($handle, $src, $deps, $ver, $media) {
+                wp_enqueue_style($handle,  $src,  $deps, $ver, $media);
+            });
             return $this;
         }
 

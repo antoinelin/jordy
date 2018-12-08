@@ -139,3 +139,4 @@ $ sh ./bin/install.sh
 [Thomas Sutton](https://passingcuriosity.com/)
 [Brad Touesnard @ Delicious Brain](https://deliciousbrains.com/author/bradt/)
 [bounca.org](https://www.bounca.org)
+[tylerlwsmith](https://github.com/tylerlwsmith)
