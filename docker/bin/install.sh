@@ -1,5 +1,5 @@
 #!/bin/bash
-ln -s /home/jordy-theme /var/www/html/wp-content/themes/jordy-theme
+# ln -s /home/jordy-theme /var/www/html/wp-content/themes/jordy-theme
 
 # Install WordPress.
 wp core install \
@@ -23,12 +23,14 @@ wp plugin install --activate \
   wp-rest-api-cache \
   jwt-authentication-for-wp-rest-api
 
-# Cleaning
+# Activate jordy and cleaning
+wp theme activate jordy-theme
 wp post delete 1 --force # Article exemple - no trash. Comment is also deleted
 wp post delete 2 --force # page exemple
 wp plugin delete hello
-wp theme delete twentyfifteen
 wp theme delete twentysixteen
+wp theme delete twentyseventeen
+wp theme delete twentynineteen
 wp option update blogdescription ''
 
 # Config Redis on wp-config.php
@@ -39,5 +41,3 @@ wp config set CACHE true --type=constant --raw
 # Config WordPress API JWT auth plugin
 wp config set JWT_AUTH_SECRET_KEY $JWT_AUTH_SECRET_KEY --type=constant
 wp config set JWT_AUTH_CORS_ENABLE true --type=constant --raw
-
-echo '\033[0;32mJordy theme is now installed, please activate it on your admin dashboard.\033[0m'

@@ -9,6 +9,7 @@ read -p 'Would you like to install Jordy WordPress theme? (recommanded) (y/N)? '
 case ${answer:0:1} in
     y|Y )
         docker-compose run --rm wordpress-cli install
+        echo '\033[0;32mJordy theme is now intalled, please activate it on your admin dashboard.\033[0m'
     ;;
     * )
         :

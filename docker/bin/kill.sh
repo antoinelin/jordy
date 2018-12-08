@@ -16,7 +16,7 @@ read -p 'Would you like to delete Docker volumes? (y/N)? ' answer
 case ${answer:0:1} in
     y|Y )
         docker volume prune
-        echo '\033[0;32mVolumes delete.\033[0m'
+        echo '\033[0;32mVolumes deleted.\033[0m'
     ;;
     * )
         :
