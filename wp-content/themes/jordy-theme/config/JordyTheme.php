@@ -33,6 +33,10 @@ if (!class_exists('JordyTheme')) {
          * Require ACFs and CPTs
          */
         private function _autoloadFieldsAndCPTs() {
+            if (empty(GLOB_BRACE)) {
+                defined('GLOB_BRACE') ? GLOB_BRACE : 0;
+            }
+
             foreach (glob(get_template_directory() . "/{models,custom-fields}/*.php", GLOB_BRACE) as $filename) {
                 if(file_exists($filename) && is_readable($filename)) {
                     require_once $filename;

@@ -23,6 +23,7 @@ services:
       - "./nginx/conf.d:/etc/nginx/conf.d:ro"
       - "nginx_log:/var/log/nginx:rw"
       - "${WP_CORE}:/var/www/html:rw"
+      - "${WP_CONTENT}:/var/www/html/wp-content:rw"
     restart: unless-stopped
 
   database:
@@ -92,6 +93,7 @@ services:
       - 127.0.0.1:443:443
     volumes:
       - "${WP_CORE}:/var/www/html:rw"
+      - "${WP_CONTENT}:/var/www/html/wp-content:rw"
       - "./caddy/Caddyfile-dev:/etc/Caddyfile:rw"
       - "./caddy/.caddy:/root/.caddy:rw"
       - "./caddy/ssl/jordy.dev.crt:/etc/caddy/ssl/jordy.dev.crt:ro"
@@ -110,6 +112,7 @@ services:
       - 127.0.0.1:443:443
     volumes:
       - "${WP_CORE}:/var/www/html:rw"
+      - "${WP_CONTENT}:/var/www/html/wp-content:rw"
       - "./caddy/Caddyfile-prod:/etc/Caddyfile:rw"
       - "./caddy/.caddy:/root/.caddy:rw"
       - "caddy_log:/var/log/caddy:rw"

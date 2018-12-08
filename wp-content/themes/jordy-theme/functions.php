@@ -12,7 +12,7 @@ $theme = new JordyTheme;
 $theme->addFilter('show_admin_bar', '__return_false');
 
 // Add style
-$theme->addStyle('jordy-styles',  get_stylesheet_uri(), array(), wp_get_theme()->get( 'Version' ));
+$theme->addStyle('style',  get_stylesheet_uri(), array(), wp_get_theme()->get( 'Version' ));
 
 // Allow SVG uploads
 $theme->addFilter('upload_mimes', function($mime_types) {
