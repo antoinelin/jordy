@@ -53,5 +53,7 @@ docker/caddy/.caddy
 docker/caddy/ssl/*
 !docker/caddy/ssl/openssl-with-ca.cnf
 !docker/caddy/ssl/v3.ext
-wp-content/
-!wp-content/themes/jordy-theme/
+wp-content/*
+!wp-content/themes
+wp-content/themes/*
+!wp-content/themes/jordy-theme
