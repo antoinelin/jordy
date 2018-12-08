@@ -1,7 +1,9 @@
 # Jordy
-WordPress API theme using Docker
+Jordy is a WordPress theme which provide useful features to create WordPress API endpoints queryable from modern stack front-end (such as [GatsbyJS](https://www.gatsbyjs.org/), [Gridsome](https://gridsome.org/) etc.).
 
-# Installation
+## Requirements
+- [Docker and Docker Compose](https://www.docker.com/)
+
 ## Getting started
 
 Clone the repo :
@@ -9,9 +11,7 @@ Clone the repo :
 $ git clone https://github.com/toinelin/jordy.git
 ```
 
-## Create jordy.dev vhost
-
-### Using dnsmasq (OSX) :
+### Create jordy.dev vhost using dnsmasq (macOS) :
 
 #### => [Full tuto here](https://passingcuriosity.com/2013/dnsmasq-dev-osx/)
 
@@ -58,7 +58,7 @@ nameserver 127.0.0.1
 EOF
 ```
 
-## Generate SSL certification for dev
+### Generate SSL certification for dev
 
 #### => [Full tuto here](https://deliciousbrains.com/ssl-certificate-authority-for-local-https-development/)
 
@@ -134,8 +134,10 @@ $ sh ./bin/install.sh
 - [x] Add Caddy container for reverse proxy / https
 - [-] Add user restriction for nginx and mysql
 - [x] Create the WordPress API Theme
+- [] Create automated script to generate vhost and CA
+- [] Improve TTFB with cache
 
-# Credits
+## Credits
 [Thomas Sutton](https://passingcuriosity.com/)
 [Brad Touesnard @ Delicious Brain](https://deliciousbrains.com/author/bradt/)
 [bounca.org](https://www.bounca.org)
